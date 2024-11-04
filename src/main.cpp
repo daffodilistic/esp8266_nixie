@@ -29,12 +29,14 @@ void setup()
   Serial.begin(9600);
   Serial.println("Hello, World!");
 
-  FastLED.addLeds<NEOPIXEL, LED_ARRAY_PIN>(leds, NUM_LEDS);
+  FastLED.addLeds<WS2812, LED_ARRAY_PIN, GRB>(leds, NUM_LEDS);
   leds[0] = CRGB::White;
   FastLED.show();
 
   tft.init();
   tft.setRotation(0);
+
+  delay(1000);
 }
 
 void loop()
@@ -97,5 +99,5 @@ void loop()
   tft.print("Hexadecimal = ");
   tft.println((int)fnumber, HEX);
 
-  delay(1);
+  delay(1000);
 }
